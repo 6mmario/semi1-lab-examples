@@ -1,1 +1,1 @@
-# semi1-lab-examples
+# Ejemplos del laboratorio de Seminario 1
