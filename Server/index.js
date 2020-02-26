@@ -52,7 +52,6 @@ app.post('/uploadImageS3', (req, res) => {
 
   //Parámetros para S3
   let bucketname = 'bucket-test-201602822';
-  let region = 'us-east-2';
   let folder = 'Gatos gatas/';
   let filepath = `${folder}${filename}`;
   var uploadParamsS3 = {
@@ -62,14 +61,12 @@ app.post('/uploadImageS3', (req, res) => {
     ACL: 'public-read',
   };
 
-  let filepathAsQueryString = filepath.replace(/\s/g, '+')
-  var location = `https://${bucketname}.s3.${region}.amazonaws.com/${filepathAsQueryString}`;
   s3.upload(uploadParamsS3, function sync(err, data) {
     if (err) {
       console.log('Error uploading file:', err);
       res.send({ 'message': 'failed' })
     } else {
-      console.log('Upload success at:', location);
+      console.log('Upload success at:', data.Location);
       res.send({ 'message': 'uploaded' })
     }
   });
