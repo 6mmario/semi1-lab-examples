@@ -4,3 +4,4 @@ Server/aws_config.json
 Server/db_credentials.json
 P1/
 Server/s3_credentials.json
+Server/aws_keys.js
